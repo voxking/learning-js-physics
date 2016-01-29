@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<title>Youness BELFKIH</title>
+<script src="gl-matrix-min.js"></script>
+<style type="text/css">
+
+body {
+	background: #333;
+	margin: 10px;
+	font-family: "Segoe UI", tahoma;
+	color: white;
+}
+
+output.FPS, a.back {
+	position: fixed;
+	top: 15px;
+	padding: 5px 10px;
+	background: rgba(30,30,30,.3);
+	font-size: 1.5em;
+}
+
+output.FPS {
+	right: calc(15px + 1em);
+	color: hsl(163, 100%, 50%);
+}
+
+output.FPS::after {
+	content: " FPS";
+	color: white;
+	font-size: 0.5em;
+}
+
+canvas {
+	display: block;
+	width: calc(100vmin - 20px - 2em);
+	height: calc(100vmin - 20px - 2em);
+	margin: auto;
+	background: black;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+a.back {
+	left: calc(15px + 1em);
+	transition: background 0.3s ease-in-out;
+	color: inherit;
+	text-decoration: none;
+}
+
+a.back:hover {
+	background: hsl(163, 100%, 50%);
+}
+
+footer {
+	text-align: center;
+	font-size: 0.8em;
+	color: #888;
+}
+
+</style>
+<script defer async src="main.js"></script>
+<a class="back" href="../index.html">Back</a>

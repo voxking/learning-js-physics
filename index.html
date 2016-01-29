@@ -62,6 +62,10 @@ p a:visited {
 	text-decoration: none;
 }
 
+ul li small {
+	float: right;
+}
+
 p a:hover {
 	text-decoration: underline;
 }
@@ -78,10 +82,11 @@ footer {
 
 <p>Just me, learning Javascript physics</p>
 
-<h5>What i made ...</h5>
+<h5>What i'm making ...</h5>
 
 <ul>
 	<li><a href="fireworks/index.html">Fireworks (Particle Systems)</a></li>
+	<li><a href="2dBox-NoCollision/index.html">2D Boxes (Rigid Bodies - Unconstrained simulation)</a><small>NEW</small></li>
 </ul>
 
 <h3>Fireworks</h3>
@@ -92,6 +97,11 @@ A particle is a point in space wich has a position, a velocity and a mass.</p>
 <blockquote>To simulate a particle system, we need to first create an array of particles with an initial state. Each particle must have a fixed mass, an initial position in space and an initial velocity. Then we have to start the main loop of the simulation where, for each particle, we have to compute the force that is currently acting on it, update its velocity from the acceleration produced by the force, and then update its position based on the velocity we just computed. <br /> &#8212; Nilson Souto
 </blockquote>
 
+<h3>Unconstrained 2D Boxes</h3>
+
+<p>I can barely anderstand it, so I cant give good explanation.</p>
+<p>I only added canvas boundaries detection cause i like to see all those objects in front of me. I did the same with the fireworks.</p>
+
 <h5>What i'm reading ...</h5>
 
 <ul>
@@ -100,6 +110,14 @@ A particle is a point in space wich has a position, a velocity and a mass.</p>
 	<li><a href="https://developer.mozilla.org/en/docs/Web/Events/click">click DOM event - MDN</a></li>
 	<li><a href="http://glmatrix.net/docs/2.2.0/">gl-matrix.js docs</a></li>
 </ul>
+
+<h5>What i'm using ...</h5>
+
+<ul>
+	<li><a href="http://glmatrix.net/">GL-Matrix.js (as a Vector library)</a></li>
+</ul>
+
+<h5>FIN ...</h5>
 
 <p>Did i tell you, that you can access the source code <a href="https://github.com/voxking/learning-js-physics/">here</a></p>
 <p>If you see any glitches or broken stuff, then maybe your browser is old ... get a new one ^_^ .</p>

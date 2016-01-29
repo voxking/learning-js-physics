@@ -42,43 +42,41 @@ document.body.appendChild(fpsText);
 function update(dt) {
 	let removed = [];
 	for (let i = 0; i < particles.length; ++i) {
-        let particle = particles[i];
-        let force = computeForce(particle);
-        let acceleration = vec2.set(vec2.create(), force[0] / particle.mass, force[1] / particle.mass);
-        particle.velocity[0] += acceleration[0] * dt;
-        particle.velocity[1] += acceleration[1] * dt;
+		let particle = particles[i];
+		let force = computeForce(particle);
+		let acceleration = vec2.set(vec2.create(), force[0] / particle.mass, force[1] / particle.mass);
+		particle.velocity[0] += acceleration[0] * dt;
+		particle.velocity[1] += acceleration[1] * dt;
 
-        if (particle.position[1] > 800 && particle.velocity[1] > 0) {
-        	particle.velocity[1] *= -0.25;
-        	particle.velocity[0] *= 0.25;
-        	particle.age = (particle.age * 0.3)| 0;
-        }
+		if (particle.position[1] > 800 && particle.velocity[1] > 0) {
+			particle.velocity[1] *= -0.25;
+			particle.velocity[0] *= 0.25;
+			particle.age = (particle.age * 0.3)| 0;
+		}
 
-        if (
-        	(particle.position[0] > 800 && particle.velocity[0] > 0) ||
-        	(particle.position[0] < 0 && particle.velocity[0] < 0)
-        ) {
-        	particle.velocity[0] *= -0.75;
-        }
+		if (
+			(particle.position[0] > 800 && particle.velocity[0] > 0) ||
+			(particle.position[0] < 0 && particle.velocity[0] < 0)
+		) {
+			particle.velocity[0] *= -0.75;
+		}
 
-        particle.position[0] += particle.velocity[0] * dt;
-        particle.position[1] += particle.velocity[1] * dt;
-        particle.age--;
-        if (particle.age <= 0) removed.push(i);
-    }
-    for (let i = 0; i < removed.length; i++) {
-    	particles.splice(removed[i], 1);
-    }
+		particle.position[0] += particle.velocity[0] * dt;
+		particle.position[1] += particle.velocity[1] * dt;
+		particle.age--;
+		if (particle.age <= 0) removed.push(i);
+	}
+	for (let i = 0; i < removed.length; i++) {
+		particles.splice(removed[i], 1);
+	}
 }
-
-const THO = Math.PI * 2;
 
 function render() {
 	context.globalCompositeOperation = "lighter";
 	for (let i = 0; i < particles.length; ++i) {
-        let particle = particles[i];
+		let particle = particles[i];
 		context.drawImage(fire, particle.position[0] - 3, particle.position[1] - 3);
-    }
+	}
 }
 
 let last = 0;
