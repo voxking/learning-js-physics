@@ -19,7 +19,7 @@ output.FPS, a.back {
 }
 
 output.FPS {
-	right: 15px;
+	right: calc(15px + 1em);
 	color: hsl(163, 100%, 50%);
 }
 
@@ -31,8 +31,8 @@ output.FPS::after {
 
 canvas {
 	display: block;
-	width: calc(100vmin - 20px);
-	height: calc(100vmin - 20px);
+	width: calc(100vmin - 20px - 2em);
+	height: calc(100vmin - 20px - 2em);
 	margin: auto;
 	background: black;
 	box-sizing: border-box;
@@ -40,7 +40,7 @@ canvas {
 }
 
 a.back {
-	left: 15px;
+	left: calc(15px + 1em);
 	transition: background 0.3s ease-in-out;
 	color: inherit;
 	text-decoration: none;
@@ -50,6 +50,12 @@ a.back:hover {
 	background: hsl(163, 100%, 50%);
 }
 
+footer {
+	text-align: center;
+	font-size: 0.8em;
+	color: #888;
+}
+
 </style>
 <script defer async src="main.js"></script>
-<a class="back" href="//index.html">Back</a>
+<a class="back" href="../index.html">Back</a>

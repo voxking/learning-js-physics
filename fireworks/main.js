@@ -7,8 +7,8 @@ class Particle {
 	constructor() {
 		this.position = vec2.create();
 		this.velocity = vec2.create();
-		this.mass     = 3.0;
-		this.age      = 100 + ((Math.random() * 100)|0);
+		this.mass     = 1.0;
+		this.age      = 10 + ((Math.random() * 100)|0);
 	}
 }
 
@@ -25,13 +25,18 @@ let context = window.context = canvas.getContext("2d");
 let fire = new Image();
 fire.src = "fire.png";
 
+// let sound = new Audio();
+// sound.volume = 0.2;
+// sound.loop = true;
+// sound.autoplay = true;
+// sound.src = "http://soundbible.com/grab.php?id=692&type=mp3";
+
 canvas.height = canvas.width = 800;
 
 let fpsText = document.createElement("output");
 fpsText.classList.add("FPS");
 
 document.body.appendChild(canvas);
-
 document.body.appendChild(fpsText);
 
 function update(dt) {
@@ -94,20 +99,34 @@ function fireworks(x, y) {
 	for (let i = 0; i < NUM_PARTICLES; i++) {
 		let particle = new Particle;
 		vec2.set(particle.position, x, y);
-		vec2.random(particle.velocity, 30 * Math.random())
+		vec2.random(particle.velocity, 10 + 30 * Math.random())
 		particles.push(particle);
 	}
 }
 
-function randomFireworks() {
-	for (var n = (Math.random()*5 + 1 |0); n >= 0 ; n--) {
-		fireworks(Math.random() * 600 + 100, Math.random() * 300 + 100);
-	}
-}
+// function randomFireworks() {
+// 	for (var n = (Math.random()*5 + 1 |0); n >= 0 ; n--) {
+// 		setTimeout(fw, 3000 + Math.random() * 500);
+// 	}
 
-setInterval(randomFireworks, 3000)
+// 	function fw() {
+// 		fireworks(Math.random() * 600 + 100, Math.random() * 300 + 100);
+// 	}
+// }
 
+// setInterval(randomFireworks, 5929.796)
+// randomFireworks();
+
+let instruction = document.createElement("footer");
+instruction.textContent = "Click to shoot fireworks!";
+document.body.appendChild(instruction);
+
+let clicked = false;
 canvas.addEventListener("click", function (e) {
+	if (!clicked) {
+		instruction.hidden = true;
+		clicked = true;
+	}
 	let rect = canvas.getBoundingClientRect();
 	let x = (e.clientX-rect.left)/(rect.right-rect.left)*canvas.width |0;
 	let y = (e.clientY-rect.top)/(rect.bottom-rect.top)*canvas.width |0;
