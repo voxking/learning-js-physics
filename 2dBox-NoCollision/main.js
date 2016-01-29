@@ -103,7 +103,7 @@ const PI2 = Math.PI * 2;
 
 function randomizeRigidBody(rBody) {
 	vec2.set(rBody.position, 100 + Math.random() * 600, 100 + Math.random() * 600);
-	vec2.random(rBody.velocity, 10 + 30 * Math.random())
+	rBody.velocity[0] = Math.random() * 20 - 10;
 	rBody.angle = Math.random() * PI2;
 	rBody.shape.width = 10 + Math.random() * 20;
 	rBody.shape.height = 10 + Math.random() * 20;
@@ -112,10 +112,12 @@ function randomizeRigidBody(rBody) {
 context.strokeStyle = "hsl(163, 100%, 50%)";
 
 let last = 0;
+let speed = 100;
 function run(t) {
 	let dt = (t - last) / 100;
 	context.fillRect(0, 0, 800, 800);
-	update(dt / 2);
+	update(dt / Math.max(speed, 1));
+	speed -= 0.1;
 	render();
 	last = t;
 	fpsText.value = (10/dt).toFixed(0);
@@ -125,7 +127,7 @@ function run(t) {
 requestAnimationFrame(run, canvas);
 
 let instruction = document.createElement("footer");
-instruction.textContent = "Click to start the simulation";
+instruction.textContent = "Click to start the simulation\n(Starts in slow motion then speeds up)";
 document.body.appendChild(instruction);
 
 let clicked = false;
