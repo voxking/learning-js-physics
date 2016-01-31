@@ -10,7 +10,7 @@ body {
 	color: white;
 }
 
-ul, p, footer, blockquote {
+hr, ul, p, footer, blockquote {
 	max-width: 60vw;
 	margin: auto;
 }
@@ -19,6 +19,19 @@ blockquote {
 	padding: 10px;
 	border-left: 10px solid gray;
 	box-sizing: border-box;
+}
+
+.blurry {
+	-webkit-filter: blur(1px);
+}
+
+hr {
+	border: none;
+	background: url(construction.png);
+	background: linear-gradient(45deg, black 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, black 50%, black 75%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 0), rgb(255, 218, 0);
+	background-size: 10px 10px;
+	height: 10px;
+	margin-bottom: 10px;
 }
 
 p {
@@ -80,6 +93,10 @@ footer {
 <h1>Youness BELFKIH</h1>
 <h2>PLAYGROUND</h2>
 
+<hr />
+<p>Please note that its all still under construction, watch it on <a href="https://github.com/voxking/learning-js-physics/">github</a> for update :).</p>
+<hr />
+
 <p>Just me, learning Javascript physics</p>
 
 <h5>What i'm making ...</h5>
@@ -105,9 +122,14 @@ A particle is a point in space wich has a position, a velocity and a mass.</p>
 
 <h5>What i'm reading ...</h5>
 
+<p>Some are blurred because, well, I still dont get them :(.</p>
+
 <ul>
-	<li>Real Time Collision Detection (Pages <a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-375.html">375</a>, <a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-376.html">376</a> and<a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-377.html">377</a>)</li>
+	<li>Real Time Collision Detection (Pages <a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-375.html">375</a>, <a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-376.html">376</a> and <a href="http://what-when-how.com/Tutorial/topic-524eh1v/Real-Time-Collision-Detection-377.html">377</a>)</li>
 	<li><a href="http://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics">Video Game Physics Tutorial - Part I: An Introduction to Rigid Body Dynamics</a></li>
+	<li class="blurry"><a href="http://www.toptal.com/game/video-game-physics-part-ii-collision-detection-for-solid-objects">Video Game Physics Tutorial - Part II: Collision Detection for Solid Objects</a></li>
+	<li class="blurry"><a href="http://www.toptal.com/game/video-game-physics-part-iii-constrained-rigid-body-simulation">Video Game Physics Tutorial - Part III: Constrained Rigid Body Simulation
+</a></li>
 	<li><a href="https://www.nczonline.net/blog/2012/11/27/computer-science-in-javascript-quicksort/">Computer science in JavaScript: Quicksort</a></li>
 	<li><a href="http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/#comment-1688969574">HTML5 Canvas Mouse Coordinates Tutorial</a></li>
 	<li><a href="https://developer.mozilla.org/en/docs/Web/Events/click">click DOM event - MDN</a></li>
